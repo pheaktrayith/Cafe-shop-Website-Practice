@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cofe shop</title>
+    <link rel="icon" href="./img/logo/icons8-kawaii-coffee-100.png">
+    <link rel="stylesheet" href="./cofe_shop.css">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500;1,600&family=Hanuman:wght@100;300;400;700;900&family=Moul&family=Noto+Sans+JP:wght@500&family=Open+Sans:wght@300;500;600&family=Roboto:wght@100;300;400;500;700;900&family=Sono&family=Titillium+Web:ital,wght@0,200;0,300;0,400;0,600;1,200;1,300;1,400;1,600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+</head>
+<body>
+    <!-- count -->
+    <div class="count">
+        <p id="num">0</p>
+    </div>
+    <!-- menu -->
+    <div class="block_menu" id="block_menu">
+        <div class="container-fluid menu_detail p-0 h-100">
+            <table class="table text-center table-borderless text-light">
+                <thead class="bg-light text-dark">
+                    <tr>
+                        <th>N°</th>
+                        <th>NAME</th>
+                        <th>QTY</th>
+                        <th>TOTAL</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="nth" id="nth" onclick="nth()"></div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">Drink Details</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Drink name</label>
+                            <input id="name" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Quantity</label>
+                            <input id="qty" type="text" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label>Price</label>
+                            <input type="text" value="4000 ៛" class="form-control" disabled>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button onclick="buy()" type="reset" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- navbar -->
+    <div class="container-fluid p-0 navbars navbar">
+        <div class="logo">
+            <img src="./img/logo/icons8-kawaii-coffee-100.png" width="80px" height="80px" alt="">
+            <span>The <u>Cofé</u></span>
+        </div>
+        <div class="menu navbar">
+            <input type="text" placeholder="search...">
+            <i class="fa-solid fa-magnifying-glass"></i>
+            <img src="./img/logo/bag.png" onclick="menu()" width="50px" height="50px"  alt="">
+        </div>
+    </div>
+    <div class="container-fluid p-0 detail">
+        <div class="natur">
+            <img src="./img/pngwing.com (2).png"alt="">
+        </div>
+        <div class="contain">
+            <h1>Popular Coffee</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eius id exercitationem adipisci nulla, itaque ab rerum fugit quibusdam sint cumque in? Fugit eveniet corporis architecto vero quos, cumque mollitia delectus.</p>
+            <!-- <button class="option">View Options</button> -->
+            <button class="test">View Options</button>
+
+        </div>
+        <div class="cofe">
+            <img src="./img/cofe/cofe_1.png" width="600px" alt="">
+        </div>
+        <div class="cofebg_1">
+            <img src="./img/cofe/580b57fbd9996e24bc43c0f3.png" width="250px" alt="">
+        </div>
+        <div class="cofebg_2">
+            <img src="./img/cofe/coffee beans.png" width="250px" alt="">
+        </div>
+    </div>
+    <div class="container-fluid main p-0">
+        <h3>Coffee List</h3>
+        <div class="container-fluid p-0 nav_cofe mt-4">
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button type="button" onclick="Refresh()" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy</button>
+            </div>
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button type="button" onclick="Refresh()" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy</button>
+            </div>
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button type="button" onclick="Refresh()" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy</button>
+            </div>
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button type="button" onclick="Refresh()" data-bs-toggle="modal" data-bs-target="#exampleModal">Buy</button>
+            </div>
+        </div>
+        <h3 class="mt-5">Coffee List</h3>
+        <div class="container-fluid p-0 nav_cofe mt-4">
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button>Buy</button>
+            </div>
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button>Buy</button>
+            </div>
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button>Buy</button>
+            </div>
+            <div class="block">
+                <div class="block_img">
+                    <img src="./img/cofe/cofe_img.webp" class="w-100 h-100" alt="">
+                </div>
+                <h5>Street Café</h4>
+                <p><b>$</b>$$,BeveragesTea & CoffeeSoutheast Asia</p>
+                <button>Buy</button>
+            </div>
+        </div>
+    </div> zz
+</body>
+</html>
+
+<script src="/index.js"></script>
